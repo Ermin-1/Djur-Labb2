@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace Djur
@@ -38,18 +39,15 @@ namespace Djur
             Console.WriteLine($"The {breed} called {name} is running very fast!");
         }
 
+
+
         public class Dog : Djur
         {
             public string owner;
             public Dog(string owner, string color, string name, string breed, int age, int height) : base(color, name, breed, age, height)
             {
-                this.owner = "Ermin";
-                this.color = "Black";
-                this.name = "Hugo";
-                this.breed = "Labrador";
-                this.age = 7;
-                this.height = 56;
-
+                this.owner = owner;
+     
             }
             public void MakeSound()
             {
@@ -62,23 +60,60 @@ namespace Djur
 
         }
 
+        public class Bulldog : Djur
+        {
+            public string tailcolor;
+            public Bulldog(string tailcolor, string eyecolor, string color, string name, string breed, int age, int height) : base(color, name, breed, age, height)
+            {
+                this.tailcolor = tailcolor;
+            }
+
+            public void MakeSound()
+            {
+                Console.WriteLine("VOFFFFFFF VOFFFFF!");
+            }
+
+            public void Tail()
+            {
+                Console.WriteLine($"The {breed}s tail is color: {tailcolor}");
+            }
+        }
+
+        public class Chiwauwa : Djur
+        {
+            public string necklaceID;
+            public Chiwauwa(string necklaceID, string eyecolor, string color, string name, string breed, int age, int height) : base(color, name, breed, age, height)
+            {
+                this.necklaceID = necklaceID;
+            }
+
+            public void MakeSound()
+            {
+                Console.WriteLine("WOFFFF WOFFF!");
+            }
+
+            public void Necklace()
+            {
+                Console.WriteLine($"The {age} years old {breed} was found on a countryroad with a necklasetag: {necklaceID} ");
+            }
+        }
         public class Cat : Djur
         {
             public string eyecolor;
             public Cat(string eyecolor, string color, string name, string breed, int age, int height) : base(color, name, breed, age, height)
             {
-                this.eyecolor = "Blue";
-                this.color = "Black";
-                this.name = "Bingo";
-                this.breed = "Ragdopll";
-                this.age = 4;
-                this.height = 43;
+                this.eyecolor = eyecolor;
+
             }
 
                 public void MakeSound()
                 {
                     Console.WriteLine("MJAU MJAU!");
                 }
+                public void Hiding()
+            {
+                Console.WriteLine($"The {eyecolor}eyed {breed} called {name} is hiding!");
+            }
         }
 
         public class Horse : Djur
@@ -86,20 +121,23 @@ namespace Djur
             public string country;
             public Horse(string country, string color, string name, string breed, int age, int height) : base(color, name, breed, age, height)
             {
-                this.country = "Middle-earth";
-                this.color = "White";
-                this.name = "Shadowfax";
-                this.breed = "Mearas";
-                this.age = 15;
-                this.height = 158;
+                this.country = country;
+
             }
 
             public void MakeSound()
             {
                 Console.WriteLine("NEIGH NEIGH!");
             }
+
+            public void Staggering()
+            {
+                Console.WriteLine($"With its {height}cm, the tall horse called {name} staggerd!");
+            }
         }
+
     }
+
 }
 
 
